@@ -29,3 +29,7 @@ const battery = require("battery");
 ## API
 
 ### battery()
+
+## Related
+
+- [battery-cli](https://github.com/Richienb/battery-cli) CLI for this module.
