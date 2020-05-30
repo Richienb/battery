@@ -1,13 +1,10 @@
 const test = require("ava")
-const theModule = require(".")
+const inRange = require("in-range")
+const battery = require(".")
 
-test("main", t => {
-	t.throws(() => {
-		theModule(123)
-	}, {
-		instanceOf: TypeError,
-		message: "Expected a string, got number"
-	})
+test("main", async t => {
+	const { level, charging } = await battery()
 
-	t.is(theModule("unicorns"), "unicorns & rainbows")
+	t.true(typeof level === "number" && inRange(level, { start: 0, end: 1 }))
+	t.true(typeof charging === "boolean")
 })

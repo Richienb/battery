@@ -1,9 +1,9 @@
 "use strict"
 
-module.exports = (input, { postfix = "rainbows" } = {}) => {
-	if (typeof input !== "string") {
-		throw new TypeError(`Expected a string, got ${typeof input}`)
-	}
+const getBatteryLevel = require("battery-level")
+const getBatteryCharging = require("is-charging")
 
-	return `${input} & ${postfix}`
-}
+module.exports = async () => ({
+	level: await getBatteryLevel() || 1,
+	charging: await getBatteryCharging() || true
+})

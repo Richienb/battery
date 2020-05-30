@@ -1,15 +1,30 @@
+declare namespace battery {
+	export interface ReturnType {
+		/** The battery level as a float from 0 to 1. */
+		level: number
+
+		/** Whether the battery is charging. */
+		charging: boolean
+	}
+}
+
 /**
-My awesome module.
-@param input Lorem ipsum.
-@param postfix Lorem ipsum.
+Get battery level and charging status.
 @example
 ```
-const theModule = require("the-module");
+const battery = require("battery");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+(async () => {
+	const { level, charging } = await battery();
+
+	console.log(level);
+	//=> 0.8
+
+	console.log(charging);
+	//=> true
+})();
 ```
 */
-declare function theModule(input: string, { postfix }: { postfix?: string }): string
+declare function battery(): ReturnType
 
-export = theModule
+export = battery

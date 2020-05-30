@@ -1,41 +1,31 @@
-# the-module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# battery [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/battery/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/battery)
 
-My awesome module.
+Get battery level and charging status.
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/battery.png)](https://npmjs.com/package/battery)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install battery
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const battery = require("battery");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+(async () => {
+	const { level, charging } = await battery();
+
+	console.log(level);
+	//=> 0.8
+
+	console.log(charging);
+	//=> true
+})();
 ```
 
 ## API
 
-### theModule(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-Type: `object`
-
-##### postfix
-
-Type: `string`\
-Default: `rainbows`
-
-Lorem ipsum.
+### battery()

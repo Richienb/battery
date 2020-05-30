@@ -1,11 +1,16 @@
 {
-	"name": "the-module",
+	"name": "battery",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "Get battery level and charging status.",
+	"repository": "https://github.com/Richienb/battery.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
 	"main": "index.js",
+	"browser": "browser.js",
+	"exports": {
+		"browser": "./browser.js",
+		"default": "./index.js"
+	},
 	"files": [
 		"index.js",
 		"index.d.ts"
@@ -17,11 +22,27 @@
 		"lint": "xo",
 		"test": "xo && ava"
 	},
-	"keywords": [],
-	"dependencies": {},
+	"keywords": [
+		"battery",
+		"level",
+		"charge",
+		"charging",
+		"percentage",
+		"windows",
+		"darwin",
+		"macos",
+		"linux",
+		"browser"
+	],
+	"dependencies": {
+		"battery-level": "^3.0.0",
+		"browser-battery": "^2.0.0",
+		"is-charging": "^2.0.0"
+	},
 	"devDependencies": {
 		"ava": "^3.8.1",
 		"eslint-config-richienb": "^0.4.2",
+		"in-range": "^2.0.0",
 		"xo": "^0.30.0"
 	},
 	"resolutions": {
